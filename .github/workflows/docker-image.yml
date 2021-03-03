@@ -52,7 +52,7 @@ jobs:
           push: true
           tags: ashurpin/odyssey:${{ steps.get_tag.outputs.NAME }}
           build-args:
-            - ODYSSEY_VERSION: ${{ steps.get_tag.outputs.NAME }}
+            ODYSSEY_VERSION: ${{ steps.get_tag.outputs.NAME }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
       -

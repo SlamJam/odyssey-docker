@@ -2,8 +2,13 @@ FROM ubuntu:focal as builder
 
 ARG ODYSSEY_VERSION
 
+# Check for mandatory build arguments
+RUN \
+    : "${ODYSSEY_VERSION:?Set ODYSSEY_VERSION with --build-arg ODYSSEY_VERSION=x.x.}"
+
 # Use instead of ENV.
 ARG DEBIAN_FRONTEND=noninteractive
+
 WORKDIR /tmp/
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
